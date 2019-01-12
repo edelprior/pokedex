@@ -1,0 +1,52 @@
+// ------------------------------------------------- //
+// Evan MacHale - N00150552
+// 12.01.19
+// React + Material
+// ------------------------------------------------- //
+// https://github.com/material-components/material-components-web-react#step-3a-use-compiled-css
+// https://sass-lang.com/guide
+// ------------------------------------------------- //
+/*
+  12.01.19
+  Installed Typescript for Material:
+    npm i @types/react @types/react-dom @types/classnames @types/node typescript
+  Installed Material React components:
+    npm install @material/react-button
+  Installed Sass for Material Styles:
+    npm install -g sass
+  Added environment variable for sass:
+    SET SASS_PATH=.\node_modules
+    npm install node-sass
+  -> @import... below to use Material Design Components
+*/
+// ------------------------------------------------- //
+
+// Import MDC Sass modules + Override styles
+
+// Grid
+// @import '@material/react-layout-grid/index.scss';
+// // Typography
+// @import '@material/react-typography/index.scss';
+// // Icons
+// @import '@material/react-material-icon/index.scss';
+// // Icon buttons
+// @import '@material/react-icon-button/index.scss';
+// @import "./style-overrides/react-icon-button-overrides";
+// Buttons
+@import '@material/react-button/index.scss';
+// Floating action buttons
+// @import '@material/react-fab/index.scss';
+// @import "./style-overrides/react-fab-overrides";
+// // Top app bar
+// @import '@material/react-top-app-bar/index.scss';
+// @import "./style-overrides/react-top-app-bar-overrides";
+// // Checkbox
+// @import '@material/react-checkbox/index.scss';
+// // Card
+// @import '@material/react-card/index.scss';
+
+// ------------------------------------------------- //
+
+.app {
+
+}

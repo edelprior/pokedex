@@ -1,28 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// ------------------------------------------------- //
+// Evan MacHale - N00150552
+// 12.01.19
+// React + Material
+// ------------------------------------------------- //
+// https://github.com/material-components/material-components-web-react#step-3a-use-compiled-css
+// https://sass-lang.com/guide
+// ------------------------------------------------- //
 
+import React, { Component } from 'react';
+// Material Design Components
+import {Cell, Grid, Row} from '@material/react-layout-grid';
+
+// ------------------------------------------------- //
+
+// My Components
+
+
+import './App.scss';
+
+// ------------------------------------------------- //
+
+// Most of our material components will be compiled here alongside our canvas... I hope
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <main className="app">
+        Hello
+      </main>
     );
   }
 }
 
+// ------------------------------------------------- //
+
 export default App;
+
+// ------------------------------------------------- //
