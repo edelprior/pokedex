@@ -16,7 +16,7 @@ import {Headline1} from '@material/react-typography';
 // ------------------------------------------------- //
 
 // My Components
-import PokémonList from './components/pokémon/PokémonList'
+import PokemonList from './components/pokemon/PokemonList'
 
 import './App.scss';
 
@@ -26,7 +26,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokémon:{},
+      pokemon:{},
       moves:{},
       abilities:{}
     }
@@ -36,9 +36,9 @@ class App extends Component {
     {/*
 
       We only really want to work with:
-      1. List of Pokémon
-      2. Pokémon moves
-      3. Pokémon abilities
+      1. List of Pokemon
+      2. Pokemon moves
+      3. Pokemon abilities
 
       At the following API addresses:
       1. https://pokeapi.co/api/v2/pokemon/
@@ -49,7 +49,7 @@ class App extends Component {
     axios.get('https://pokeapi.co/api/v2/')
     .then(response => {
       this.setState({
-        pokémon: response.data.pokemon,
+        pokemon: response.data.pokedex,
         moves: response.data.move,
         abilities: response.data.ability
       });
@@ -64,7 +64,7 @@ class App extends Component {
     return (
       <main className="app">
         <Grid>
-          <PokémonList/>
+          <PokemonList />
         </Grid>
       </main>
     );

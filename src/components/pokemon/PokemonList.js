@@ -1,7 +1,7 @@
 // ------------------------------------------------- //
 // Evan MacHale - N00150552
 // 12.01.19
-// List of Pokémon
+// List of Pokemon
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
@@ -12,29 +12,29 @@ import {Cell, Grid, Row} from '@material/react-layout-grid';
 // ------------------------------------------------- //
 
 // My components
-import PokémonCard from './PokémonCard';
+import PokemonCard from './PokemonCard';
 
 // ------------------------------------------------- //
 
-class PokémonList extends Component {
+class PokemonList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokémonReference:[]
+      pokemonReference:[]
     }
   }
 
   componentDidMount() {
     {/*
-      This URL gets a list of Pokémon references
+      This URL gets a list of Pokemon references
       1. Name
       2. URL
-      The URL points to the Pokémon's profile
-      We will pass this URL as a prop to each Pokémon Card
+      The URL points to the Pokemon's profile
+      We will pass this URL as a prop to each Pokemon Card
     */}
-    axios.get('https://pokeapi.co/api/v2/pokemon/')
+    axios.get('https://pokeapi.co/api/v2/pokedex/1/')
     .then(response => {
-      this.setState({pokémonReference:response.data.results});
+      this.setState({pokemonReference:response.data.pokemon_entries});
     })
     .catch(error => {
       console.log(error);
@@ -42,21 +42,21 @@ class PokémonList extends Component {
   }
 
   render() {
-    const pokémon_list = this.state.pokémonReference.map(p =>
-      <PokémonCard
-        key={p.name}
-        name={p.name}
-        url={p.url}
+    const pokemon_list = this.state.pokemonReference.map(p =>
+      <PokemonCard
+        key={p.entry_number}
+        name={p.pokemon_species.name}
+        url={'https://pokeapi.co/api/v2/pokemon/' + p.entry_number + '/'}
       />
     );
     return (
-      <section>{pokémon_list}</section>
+      <section>{pokemon_list}</section>
     );
   }
 }
 
 // ------------------------------------------------- //
 
-export default PokémonList;
+export default PokemonList;
 
 // ------------------------------------------------- //
