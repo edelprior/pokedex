@@ -46,18 +46,18 @@ class App extends Component {
       3. https://pokeapi.co/api/v2/ability/
 
     */}
-    axios.get('https://pokeapi.co/api/v2/')
-    .then(response => {
-      this.setState({
-        pokemon: response.data.pokedex,
-        moves: response.data.move,
-        abilities: response.data.ability
-      });
-      // console.log(this.state);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    // axios.get('https://pokeapi.co/api/v2/')
+    // .then(response => {
+    //   this.setState({
+    //     pokemon: response.data.pokedex,
+    //     moves: response.data.move,
+    //     abilities: response.data.ability
+    //   });
+    //   // console.log(this.state);
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    // })
   }
 
   render() {

@@ -47,45 +47,16 @@ import {Cell, Grid, Row} from '@material/react-layout-grid';
 */
 
 class PokemonCard extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      name:null,
-      sprite:null,
-      id:null,
-      types:[]
-    }
-  }
-
-  componentDidMount() {
-    axios.get(this.props.url)
-    .then(response => {
-      this.setState({
-        name: response.data.name,
-        sprite: response.data.sprites.front_default,
-        id: response.data.id,
-        // types: response.data.types.map(t => this.types.push(t.type.name))
-        types: response.data.types
-      });
-      // console.log(this.types);
-      // console.log(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
-
   render() {
     return (
       <section>
-        <h1>{this.state.name}</h1>
-        <p>{this.state.id}</p>
+        <h1>{this.props.name}</h1>
+        <p>{this.props.id}</p>
         <img
-          alt={this.state.name}
-          src={this.state.sprite}
+          alt={this.props.name}
+          src={this.props.sprite}
         />
-        {this.state.types.map(t => {
+        {this.props.types.map(t => {
           return(
             <p>{t.type.name}</p>
           )
@@ -96,9 +67,5 @@ class PokemonCard extends Component {
 }
 
 // ------------------------------------------------- //
-// <img
-//   alt={this.state.pokemon.name}
-//   src={this.state.pokemon.sprites.front_default}
-// />
 
 export default PokemonCard;
