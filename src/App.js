@@ -18,6 +18,8 @@ import {Headline1} from '@material/react-typography';
 // My Components
 import PokemonList from './components/pokemon/PokemonList'
 
+// ------------------------------------------------- //
+
 import './App.scss';
 
 // ------------------------------------------------- //

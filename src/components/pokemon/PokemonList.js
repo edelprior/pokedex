@@ -20,13 +20,11 @@ class PokemonList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokedex:[],
-      pokemon:[]
+      pokemon: []
     }
   }
 
   componentDidMount() {
-    const pokemon_list = [];
     axios.get('https://pokeapi.co/api/v2/pokedex/1/')
     .then(response => {
       {/*
@@ -34,7 +32,7 @@ class PokemonList extends Component {
         https://pokeapi.co/api/v2/pokedex/1/ holds a specific list of pokemon
         Each pokemon we want to use is stored at a seperate address
         So we pass pokedex 'entry_number' to the pokemon URL
-        `https://pokeapi.co/api/v2/pokemon/${index.entry_number}/`
+        `https://pokeapi.co/api/v2/pokemon/${pokedex.entry_number}/`
 
         Why not just use `https://pokeapi.co/api/v2/pokemon/` to get all ???
         That URL is the same as https://pokeapi.co/api/v2/pokedex/1/
@@ -44,21 +42,23 @@ class PokemonList extends Component {
         but 'pokemon' holds every single version and alternative appearences of pokemons
       */}
       {/* Add all Id's to state */}
-      this.setState(state => ({pokedex: state.pokedex = response.data.pokemon_entries}));
+      //this.setState(state => ({pokedex: state.pokedex = response.data.pokemon_entries}));
       {/* Map through pokedex and request each pokemon */}
-      this.state.pokedex.forEach(index => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${index.entry_number}/`)
-        .then(response => pokemon_list.push(response.data));
+      response.data.pokemon_entries.forEach(pokedex => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokedex.entry_number}/`)
+        .then(response => {
+          this.setState(prevState => {
+            return {pokemon: prevState.pokemon.push(response.data)};
+          })
+        })
       })
-      {/* Add all pokemon to state */}
-      this.setState(state => ({pokemon: state.pokemon = pokemon_list}));
     })
     .catch(error => console.log(error));
-
   }
 
   render() {
-    // console.log(this.state.pokemon);
+    console.log(this.state.pokemon);
+    // console.log(this.state.pokemon.length);
     // console.log(this.state.pokemon.name);
     // console.log(this.state.pokedex);
     const pokemon = this.state.pokemon.map(p =>
@@ -70,7 +70,7 @@ class PokemonList extends Component {
       />
     );
     return (
-      <section>{pokemon}</section>
+      <section></section>
     );
   }
 }

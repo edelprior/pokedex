@@ -48,6 +48,7 @@ import {Cell, Grid, Row} from '@material/react-layout-grid';
 
 class PokemonCard extends Component {
   render() {
+    console.log('hello');
     return (
       <section>
         <h1>{this.props.name}</h1>
