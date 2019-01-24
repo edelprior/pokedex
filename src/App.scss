@@ -35,9 +35,27 @@
 @import '@material/react-top-app-bar/index.scss';
 // Card
 @import '@material/react-card/index.scss';
+// Text field
+@import '@material/react-text-field/index.scss';
+// Drawer
+@import '@material/react-drawer/index.scss';
+// List
+@import '@material/react-list/index.scss';
 
 // ------------------------------------------------- //
 
 .app {
 
+}
+
+.drawer-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drawer-app-content {
+  flex: auto;
+  overflow: auto;
 }

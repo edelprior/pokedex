@@ -9,6 +9,19 @@
 
 import React, { Component } from 'react';
 // Material Design Components
+import TopAppBar, { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
+import Drawer, {
+  DrawerAppContent,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle
+} from '@material/react-drawer';
+import MaterialIcon from '@material/react-material-icon';
+import List, {
+  ListItem,
+  ListItemGraphic,
+  ListItemText
+} from '@material/react-list';
 import { Grid } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
@@ -26,9 +39,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemon:{},
-      moves:{},
-      abilities:{}
+      open: false,
+      selectedIndex: 0
     }
   }
 
@@ -60,11 +72,41 @@ class App extends Component {
 
   render() {
     return (
-      <main className="app">
-        <Grid>
-          <PokemonList />
-        </Grid>
-      </main>
+      <div className='drawer-container'>
+        <Drawer
+          modal
+          open={this.state.open}
+          onClose={() => this.setState({open: false})}
+        >
+          <DrawerHeader>
+            <DrawerTitle tag='h2'>Menu</DrawerTitle>
+          </DrawerHeader>
+
+          <DrawerContent>
+            <List singleSelection selectedIndex={this.state.selectedIndex}>
+              <ListItem>
+                <ListItemGraphic graphic={<MaterialIcon icon='folder'/>} />
+                <ListItemText primaryText='Pokédex' />
+              </ListItem>
+            </List>
+          </DrawerContent>
+        </Drawer>
+
+        <DrawerAppContent tag='main' className='drawer-app-content'>
+          <TopAppBar
+            navigationIcon={<MaterialIcon
+                icon='menu'
+                onClick={() => this.setState({open: !this.state.open})}
+            />}
+          />
+
+          <TopAppBarFixedAdjust>
+            <Grid>
+              <PokemonList />
+            </Grid>
+          </TopAppBarFixedAdjust>
+        </DrawerAppContent>
+      </div>
     );
   }
 }

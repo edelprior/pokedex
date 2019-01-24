@@ -6,6 +6,8 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
+// Material Design Components
+import { Row } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
@@ -18,7 +20,9 @@ class PokemonList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemon: []
+      pokemon: [],
+      Types: [],
+      searchText: '',
     }
   }
 
@@ -37,7 +41,7 @@ class PokemonList extends Component {
   */
 
   componentDidMount() {
-    axios.get('https://pokeapi.co/api/v2/pokedex/1/')
+    axios.get('https://pokeapi.co/api/v2/pokedex/2/')
     .then(response => {
       // Map through each entry and request each pokemon by entry
       response.data.pokemon_entries.forEach(pokedex => {
@@ -65,7 +69,7 @@ class PokemonList extends Component {
       />
     );
     return (
-      <section>{pokemon}</section>
+      <Row>{pokemon}</Row>
     );
   }
 }

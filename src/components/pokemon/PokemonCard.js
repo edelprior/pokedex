@@ -5,6 +5,8 @@
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
+// Material Design Components
+import { Cell } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
@@ -47,8 +49,8 @@ class PokemonCard extends Component {
   render() {
     console.log();
     return (
-      <section>
-        <h1>{this.props.name}</h1>
+      <Cell columns={1}>
+        <h3>{this.props.name}</h3>
         <p>{this.props.id}</p>
         <img
           alt={this.props.name}
@@ -59,7 +61,7 @@ class PokemonCard extends Component {
             <p>{t.type.name}</p>
           )
         })}
-      </section>
+      </Cell>
     );
   }
 }
