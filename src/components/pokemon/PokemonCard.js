@@ -5,9 +5,6 @@
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
-import axios from 'axios';
-// Material Design Components
-import {Cell, Grid, Row} from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
@@ -48,7 +45,7 @@ import {Cell, Grid, Row} from '@material/react-layout-grid';
 
 class PokemonCard extends Component {
   render() {
-    console.log('hello');
+    console.log();
     return (
       <section>
         <h1>{this.props.name}</h1>
@@ -67,6 +64,10 @@ class PokemonCard extends Component {
   }
 }
 
+
+
 // ------------------------------------------------- //
 
 export default PokemonCard;
+
+// ------------------------------------------------- //

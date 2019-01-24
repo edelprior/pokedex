@@ -8,10 +8,8 @@
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
-import axios from 'axios';
 // Material Design Components
-import {Cell, Grid, Row} from '@material/react-layout-grid';
-import {Headline1} from '@material/react-typography';
+import { Grid } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
@@ -35,8 +33,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    {/*
-
+    /*
       We only really want to work with:
       1. List of Pokemon
       2. Pokemon moves
@@ -46,8 +43,7 @@ class App extends Component {
       1. https://pokeapi.co/api/v2/pokemon/
       2. https://pokeapi.co/api/v2/move/
       3. https://pokeapi.co/api/v2/ability/
-
-    */}
+    */
     // axios.get('https://pokeapi.co/api/v2/')
     // .then(response => {
     //   this.setState({
