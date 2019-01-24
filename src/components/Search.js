@@ -4,34 +4,28 @@
 // Search Component
 // ------------------------------------------------- //
 
-import React from 'react';
+import React, { Component } from 'react';
 // Material Design Components
 import TextField, {HelperText, Input} from '@material/react-text-field';
-import MaterialIcon from from '@material/react-material-icon';
+import MaterialIcon from '@material/react-material-icon';
+import { Cell } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
-class Search {
+class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 'Woof'
-    }
   }
-
   render() {
     return (
-      <div>
+      <Cell>
         <TextField
-          label='Dog'
-          helperText={<HelperText>Help Me!</HelperText>}
-          onTrailingIconSelect={() => this.setState({value: ''})}
-          trailingIcon={<MaterialIcon role="button" icon="delete"/>}
+          trailingIcon={<MaterialIcon icon="search"/>}
         ><Input
-           value={this.state.value}
-           onChange={(e) => this.setState({value: e.target.value})} />
+           value={this.props.value}
+           onChange={this.props.handleChange} />
         </TextField>
-      </div>
+      </Cell>
     );
   }
 }

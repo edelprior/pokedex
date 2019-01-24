@@ -22,7 +22,6 @@ import List, {
   ListItemGraphic,
   ListItemText
 } from '@material/react-list';
-import { Grid } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
@@ -92,8 +91,9 @@ class App extends Component {
           </DrawerContent>
         </Drawer>
 
-        <DrawerAppContent tag='main' className='drawer-app-content'>
+        <DrawerAppContent tag='main' className='drawer-app-content '>
           <TopAppBar
+            className='top-app-bar-alternate'
             navigationIcon={<MaterialIcon
                 icon='menu'
                 onClick={() => this.setState({open: !this.state.open})}
@@ -101,9 +101,7 @@ class App extends Component {
           />
 
           <TopAppBarFixedAdjust>
-            <Grid>
               <PokemonList />
-            </Grid>
           </TopAppBarFixedAdjust>
         </DrawerAppContent>
       </div>

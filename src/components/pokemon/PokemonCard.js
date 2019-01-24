@@ -58,15 +58,13 @@ class PokemonCard extends Component {
         />
         {this.props.types.map(t => {
           return(
-            <p>{t.type.name}</p>
+            <p key={t.type.name}>{t.type.name}</p>
           )
         })}
       </Cell>
     );
   }
 }
-
-
 
 // ------------------------------------------------- //
 
