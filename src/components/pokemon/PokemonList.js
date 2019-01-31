@@ -7,13 +7,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // Material Design Components
-import { Grid, Row } from '@material/react-layout-grid';
+import { Cell, Grid, Row } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
 // My components
 import PokemonCard from './PokemonCard';
 import Search from './../Search'
+import Dropdown from './../Dropdown'
 
 // ------------------------------------------------- //
 
@@ -24,6 +25,7 @@ class PokemonList extends Component {
       pokemon: [],
       types: [],
       searchText: '',
+      selectedType: 'all'
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -77,16 +79,27 @@ class PokemonList extends Component {
   }
 
   handleChange(event) {
+    const name = event.target.name
+    const value = event.target.value
     this.setState({
-      searchText: event.target.value
+      [name]: value
     });
   }
 
   render() {
 
     let pokemon = this.state.pokemon.map(p => {
+      const types = p.types.map(t => {
+        return t.type.name;
+      });
+      const typeMatch = (types.includes(this.state.selectedType) || this.state.selectedType === 'all');
+      // let typeMatch;
+      // p.types.forEach(t => {
+      //   typeMatch = (this.state.selectedType === t.type.name || this.state.selectedType === 'all');
+      // });
+      // const typeMatch = (this.state.selectedType === t.type.name || this.state.selectedType === 'all');
       const nameMatch = p.name.startsWith(this.state.searchText);
-      return (nameMatch) ? (
+      return (typeMatch && nameMatch) ? (
         <PokemonCard
           key={p.id}
           name={p.name}
@@ -99,7 +112,12 @@ class PokemonList extends Component {
     return (
       <Grid>
         <Row>
-          <Search value={this.state.searchText} handleChange={this.handleChange}/>
+          <Cell columns={2}>
+            <Search name='searchText' value={this.state.searchText} handleChange={this.handleChange}/>
+          </Cell>
+          <Cell columns={2}>
+            <Dropdown name='selectedType' value={this.state.selectedType} types={['all'].concat(this.state.types)} handleChange={this.handleChange}/>
+          </Cell>
         </Row>
         <Row>{pokemon}</Row>
       </Grid>

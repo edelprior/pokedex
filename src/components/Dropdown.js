@@ -1,32 +1,33 @@
 // ------------------------------------------------- //
 // Evan MacHale - N00150552
-// 24.01.19
-// Search Component
+// 31.01.19
+// Select Dropdown Component
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
 // Material Design Components
-import TextField, {HelperText, Input} from '@material/react-text-field';
-import MaterialIcon from '@material/react-material-icon';
+import Select from '@material/react-select';
 import { Cell } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
-class Search extends Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
       <Cell>
-        <TextField
-          trailingIcon={<MaterialIcon icon="search"/>}
-        >
-        <Input
+        <Select
           name={this.props.name}
-          value={this.props.value}
-          onChange={this.props.handleChange} />
-        </TextField>
+          onChange={this.props.handleChange}
+        >
+          {this.props.types.map(t => {
+            return (
+              <option key={t} value={t}>{t}</option>
+            )
+          })}
+        </Select>
       </Cell>
     );
   }
@@ -34,6 +35,6 @@ class Search extends Component {
 
 // ------------------------------------------------- //
 
-export default Search;
+export default Dropdown;
 
 // ------------------------------------------------- //
