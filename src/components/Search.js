@@ -21,11 +21,14 @@ class Search extends Component {
       <Cell>
         <TextField
           trailingIcon={<MaterialIcon icon="search"/>}
+          outlined={true}
+          label='Search Pokémon'
         >
         <Input
           name={this.props.name}
           value={this.props.value}
-          onChange={this.props.handleChange} />
+          onChange={this.props.handleChange}
+        />
         </TextField>
       </Cell>
     );

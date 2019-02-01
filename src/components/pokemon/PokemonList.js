@@ -25,7 +25,7 @@ class PokemonList extends Component {
       pokemon: [],
       types: [],
       searchText: '',
-      selectedType: 'all'
+      selectedType: ''
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -81,6 +81,8 @@ class PokemonList extends Component {
   handleChange(event) {
     const name = event.target.name
     const value = event.target.value
+    console.log(name);
+    console.log(value);
     this.setState({
       [name]: value
     });
@@ -92,7 +94,7 @@ class PokemonList extends Component {
       const types = p.types.map(t => {
         return t.type.name;
       });
-      const typeMatch = (types.includes(this.state.selectedType) || this.state.selectedType === 'all');
+      const typeMatch = (types.includes(this.state.selectedType) || this.state.selectedType === '');
       // let typeMatch;
       // p.types.forEach(t => {
       //   typeMatch = (this.state.selectedType === t.type.name || this.state.selectedType === 'all');
@@ -116,7 +118,7 @@ class PokemonList extends Component {
             <Search name='searchText' value={this.state.searchText} handleChange={this.handleChange}/>
           </Cell>
           <Cell columns={2}>
-            <Dropdown name='selectedType' value={this.state.selectedType} types={['all'].concat(this.state.types)} handleChange={this.handleChange}/>
+            <Dropdown name='selectedType' value={this.state.selectedType} types={[''].concat(this.state.types)} handleChange={this.handleChange}/>
           </Cell>
         </Row>
         <Row>{pokemon}</Row>

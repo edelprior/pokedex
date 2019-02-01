@@ -19,15 +19,13 @@ class Dropdown extends Component {
     return (
       <Cell>
         <Select
-          name={this.props.name}
+          label='Type'
           onChange={this.props.handleChange}
-        >
-          {this.props.types.map(t => {
-            return (
-              <option key={t} value={t}>{t}</option>
-            )
-          })}
-        </Select>
+          options={this.props.types}
+          outlined={true}
+          name={this.props.name}
+          value={this.props.value}
+        />
       </Cell>
     );
   }

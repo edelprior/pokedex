@@ -93,6 +93,7 @@ class App extends Component {
 
         <DrawerAppContent tag='main' className='drawer-app-content '>
           <TopAppBar
+            title='Pokédex'
             className='top-app-bar-alternate'
             navigationIcon={<MaterialIcon
                 icon='menu'
