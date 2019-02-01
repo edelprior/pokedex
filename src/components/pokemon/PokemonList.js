@@ -8,13 +8,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // Material Design Components
 import { Cell, Grid, Row } from '@material/react-layout-grid';
+import { Headline3 } from '@material/react-typography';
 
 // ------------------------------------------------- //
 
 // My components
 import PokemonCard from './PokemonCard';
-import Search from './../Search'
-import Dropdown from './../Dropdown'
+import Search from './../Search';
+import Dropdown from './../Dropdown';
 
 // ------------------------------------------------- //
 
@@ -113,6 +114,11 @@ class PokemonList extends Component {
 
     return (
       <Grid>
+        <Row>
+          <Cell columns={12}>
+            <Headline3>Pokédex</Headline3>
+          </Cell>
+        </Row>
         <Row>
           <Cell columns={2}>
             <Search name='searchText' value={this.state.searchText} handleChange={this.handleChange}/>

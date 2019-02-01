@@ -25,8 +25,15 @@ import List, {
 
 // ------------------------------------------------- //
 
+// React-Router-Dom
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+// ------------------------------------------------- //
+
 // My Components
+import Home from './components/Home'
 import PokemonList from './components/pokemon/PokemonList'
+import MoveList from './components/move/MoveList'
 
 // ------------------------------------------------- //
 
@@ -71,41 +78,62 @@ class App extends Component {
 
   render() {
     return (
-      <div className='drawer-container'>
-        <Drawer
-          modal
-          open={this.state.open}
-          onClose={() => this.setState({open: false})}
-        >
-          <DrawerHeader>
-            <DrawerTitle tag='h2'>Menu</DrawerTitle>
-          </DrawerHeader>
+      <BrowserRouter>
+        <main className='drawer-container'>
+          <Drawer
+            modal
+            open={this.state.open}
+            onClose={() => this.setState({open: false})}
+          >
+            <DrawerHeader>
+              <DrawerTitle tag='h2'>Menu</DrawerTitle>
+            </DrawerHeader>
 
-          <DrawerContent>
-            <List singleSelection selectedIndex={this.state.selectedIndex}>
-              <ListItem>
-                <ListItemGraphic graphic={<MaterialIcon icon='folder'/>} />
-                <ListItemText primaryText='Pokédex' />
-              </ListItem>
-            </List>
-          </DrawerContent>
-        </Drawer>
+            <DrawerContent>
+              <List className='list-item-links' singleSelection selectedIndex={this.state.selectedIndex}>
 
-        <DrawerAppContent tag='main' className='drawer-app-content '>
-          <TopAppBar
-            title='Pokédex'
-            className='top-app-bar-alternate'
-            navigationIcon={<MaterialIcon
-                icon='menu'
-                onClick={() => this.setState({open: !this.state.open})}
-            />}
-          />
+                <Link to="/">
+                  <ListItem>
+                      <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
+                      <ListItemText primaryText='Home' />
+                  </ListItem>
+                </Link>
 
-          <TopAppBarFixedAdjust>
-              <PokemonList />
-          </TopAppBarFixedAdjust>
-        </DrawerAppContent>
-      </div>
+                <Link to="/pokedex/">
+                  <ListItem>
+                      <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
+                      <ListItemText primaryText='Pokédex' />
+                  </ListItem>
+                </Link>
+
+                <Link to="/moves/">
+                  <ListItem>
+                      <ListItemGraphic graphic={<MaterialIcon icon='flash_on'/>} />
+                      <ListItemText primaryText='Moves' />
+                  </ListItem>
+                </Link>
+
+              </List>
+            </DrawerContent>
+          </Drawer>
+
+          <DrawerAppContent tag='main' className='drawer-app-content '>
+            <TopAppBar
+              className='top-app-bar-alternate'
+              navigationIcon={<MaterialIcon
+                  icon='menu'
+                  onClick={() => this.setState({open: !this.state.open})}
+              />}
+            />
+
+            <TopAppBarFixedAdjust>
+              <Route exact path='/' component={Home}/>
+              <Route path='/pokedex' component={PokemonList}/>
+              <Route path='/moves' component={MoveList}/>
+            </TopAppBarFixedAdjust>
+          </DrawerAppContent>
+        </main>
+      </BrowserRouter>
     );
   }
 }
