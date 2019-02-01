@@ -12,9 +12,6 @@ import { Cell } from '@material/react-layout-grid';
 // ------------------------------------------------- //
 
 class Dropdown extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Cell>

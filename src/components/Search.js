@@ -6,16 +6,13 @@
 
 import React, { Component } from 'react';
 // Material Design Components
-import TextField, {HelperText, Input} from '@material/react-text-field';
+import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import { Cell } from '@material/react-layout-grid';
 
 // ------------------------------------------------- //
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Cell>
