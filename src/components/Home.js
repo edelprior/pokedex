@@ -1,6 +1,6 @@
 // ------------------------------------------------- //
 // Evan MacHale - N00150552
-// 1.02.19
+// 02.02.19
 // Landing page of app
 // ------------------------------------------------- //
 
@@ -8,21 +8,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // Material Design Components
 import { Cell, Grid, Row } from '@material/react-layout-grid';
-import {
-  Body1,
-  Body2,
-  Button,
-  Caption,
-  Headline1,
-  Headline2,
-  Headline3,
-  Headline4,
-  Headline5,
-  Headline6,
-  Overline,
-  Subtitle1,
-  Subtitle2,
-} from '@material/react-typography';
+import { Headline1, Headline5, Overline } from '@material/react-typography';
 
 // ------------------------------------------------- //
 

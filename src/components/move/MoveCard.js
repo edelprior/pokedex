@@ -6,9 +6,7 @@
 
 import React, { Component } from 'react';
 // Material Design Components
-import { Cell, Row } from '@material/react-layout-grid';
-import { Body1, Subtitle1 } from '@material/react-typography';
-import List, { ListItem, ListItemText, ListDivider, ListItemMeta } from '@material/react-list';
+import { ListItem, ListItemText, ListDivider } from '@material/react-list';
 
 // ------------------------------------------------- //
 
