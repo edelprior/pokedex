@@ -94,7 +94,7 @@ class App extends Component {
 
                 {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
                 <ListItem>
-                  <Link to="/pokedex" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
                     <ListItemText primaryText='Home' />
                   </Link>
