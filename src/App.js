@@ -92,26 +92,27 @@ class App extends Component {
             <DrawerContent>
               <List className='list-item-links' singleSelection selectedIndex={this.state.selectedIndex}>
 
-                <Link to="/">
-                  <ListItem>
-                      <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
-                      <ListItemText primaryText='Home' />
-                  </ListItem>
-                </Link>
+                {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
+                <ListItem>
+                  <Link to="/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                    <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
+                    <ListItemText primaryText='Home' />
+                  </Link>
+                </ListItem>
 
-                <Link to="/pokedex/">
-                  <ListItem>
-                      <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
-                      <ListItemText primaryText='Pokédex' />
-                  </ListItem>
-                </Link>
+                <ListItem>
+                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                    <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
+                    <ListItemText primaryText='Pokédex' />
+                  </Link>
+                </ListItem>
 
-                <Link to="/moves/">
-                  <ListItem>
-                      <ListItemGraphic graphic={<MaterialIcon icon='flash_on'/>} />
-                      <ListItemText primaryText='Moves' />
-                  </ListItem>
-                </Link>
+                <ListItem>
+                  <Link to="/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                    <ListItemGraphic graphic={<MaterialIcon icon='flash_on'/>} />
+                    <ListItemText primaryText='Moves' />
+                  </Link>
+                </ListItem>
 
               </List>
             </DrawerContent>
