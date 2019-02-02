@@ -47,11 +47,16 @@
 
 // ------------------------------------------------- //
 
+@import "./style-overrides/colours";
+
+// ------------------------------------------------- //
+
 .app {
 
 }
 
 .list-item-links a {
+  color: $blue;
   text-decoration: none;
 }
 
