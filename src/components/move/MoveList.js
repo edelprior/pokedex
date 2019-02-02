@@ -61,7 +61,7 @@ class MoveList extends Component {
     // .catch(error => console.log(error));
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const name = event.target.name
     const value = event.target.value
     console.log(name);
