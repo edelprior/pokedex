@@ -101,7 +101,7 @@ class App extends Component {
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/pokemon/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
                     <ListItemText primaryText='Pokédex' />
                   </Link>
@@ -129,7 +129,7 @@ class App extends Component {
 
             <TopAppBarFixedAdjust>
               <Route exact path='/' component={Home}/>
-              <Route path='/pokedex' component={PokemonList}/>
+              <Route path='/pokemon' component={PokemonList}/>
               <Route path='/moves' component={MoveList}/>
             </TopAppBarFixedAdjust>
           </DrawerAppContent>
