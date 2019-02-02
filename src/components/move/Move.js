@@ -1,7 +1,7 @@
 // ------------------------------------------------- //
 // Evan MacHale - N00150552
-// 01.02.19
-// Move Card
+// 02.02.19
+// Move Displayed
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
@@ -12,24 +12,16 @@ import List, { ListItem, ListItemText, ListDivider, ListItemMeta } from '@materi
 
 // ------------------------------------------------- //
 
-class MoveCard extends Component {
+class Move extends Component {
   render() {
     return (
-      <React.Fragment>
-        <ListItem>
-          <ListItemText
-            primaryText={this.props.name}
-            secondaryText={`${this.props.type}, ${this.props.category}`}
-          />
-        </ListItem>
-        <ListDivider/>
-      </React.Fragment>
+
     );
   }
 }
 
 // ------------------------------------------------- //
 
-export default MoveCard;
+export default Move;
 
 // ------------------------------------------------- //

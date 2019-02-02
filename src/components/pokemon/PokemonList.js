@@ -115,19 +115,37 @@ class PokemonList extends Component {
     return (
       <Grid>
         <Row>
-          <Cell columns={12}>
-            <Headline3>Pokédex</Headline3>
+          <Cell columns={1}/>
+          <Cell columns={10}>
+            <Row>
+              <Cell columns={12}>
+                <Headline3>Pokédex</Headline3>
+              </Cell>
+            </Row>
+            <Row>
+              <Cell columns={2}>
+                <Search
+                  name='searchText'
+                  label='Search Pokémon'
+                  value={this.state.searchText}
+                  handleChange={this.handleChange}
+                />
+              </Cell>
+              <Cell columns={2}>
+                <Dropdown
+                  name='selectedType'
+                  label='Type'
+                  value={this.state.selectedType}
+                  types={[''].concat(this.state.types)}
+                  handleChange={this.handleChange}
+                />
+              </Cell>
+            </Row>
+            <br/>
+            <Row>{pokemon}</Row>
           </Cell>
+          <Cell columns={1}/>
         </Row>
-        <Row>
-          <Cell columns={2}>
-            <Search name='searchText' value={this.state.searchText} handleChange={this.handleChange}/>
-          </Cell>
-          <Cell columns={2}>
-            <Dropdown name='selectedType' value={this.state.selectedType} types={[''].concat(this.state.types)} handleChange={this.handleChange}/>
-          </Cell>
-        </Row>
-        <Row>{pokemon}</Row>
       </Grid>
     );
   }

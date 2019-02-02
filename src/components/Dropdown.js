@@ -16,7 +16,7 @@ class Dropdown extends Component {
     return (
       <Cell>
         <Select
-          label='Type'
+          label={this.props.label}
           onChange={this.props.handleChange}
           options={this.props.types}
           outlined={true}

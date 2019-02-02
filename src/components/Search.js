@@ -19,7 +19,7 @@ class Search extends Component {
         <TextField
           trailingIcon={<MaterialIcon icon="search"/>}
           outlined={true}
-          label='Search Pokémon'
+          label={this.props.label}
         >
         <Input
           name={this.props.name}
