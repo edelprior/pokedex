@@ -94,14 +94,14 @@ class App extends Component {
 
                 {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
                 <ListItem>
-                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
                     <ListItemText primaryText='Home' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/pokemon/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
                     <ListItemText primaryText='Pokédex' />
                   </Link>
@@ -128,8 +128,8 @@ class App extends Component {
             />
 
             <TopAppBarFixedAdjust>
-              <Route path='/pokedex' component={Home}/>
-              <Route path='/pokemon' component={PokemonList}/>
+              <Route exact path='/' component={Home}/>
+              <Route path='/pokedex' component={PokemonList}/>
               <Route path='/moves' component={MoveList}/>
             </TopAppBarFixedAdjust>
           </DrawerAppContent>
