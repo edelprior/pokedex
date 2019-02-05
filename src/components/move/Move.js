@@ -1,21 +1,27 @@
 // ------------------------------------------------- //
 // Evan MacHale - N00150552
-// 02.02.19
-// Move Displayed
+// 01.02.19
+// Move Card
 // ------------------------------------------------- //
 
 import React, { Component } from 'react';
 // Material Design Components
-import { Cell, Row } from '@material/react-layout-grid';
-import { Body1, Subtitle1 } from '@material/react-typography';
-import List, { ListItem, ListItemText, ListDivider, ListItemMeta } from '@material/react-list';
+import { ListItem, ListItemText, ListDivider } from '@material/react-list';
 
 // ------------------------------------------------- //
 
 class Move extends Component {
   render() {
     return (
-
+      <React.Fragment>
+        <ListItem id={this.props.id} onClick={this.props.onClick}>
+          <ListItemText
+            primaryText={this.props.name}
+            secondaryText={`${this.props.type}, ${this.props.category}`}
+          />
+        </ListItem>
+        <ListDivider/>
+      </React.Fragment>
     );
   }
 }

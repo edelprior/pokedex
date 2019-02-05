@@ -50,7 +50,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  // componentDidMount() {
     /*
       We only really want to work with:
       1. List of Pokemon
@@ -74,7 +74,7 @@ class App extends Component {
     // .catch(error => {
     //   console.log(error);
     // })
-  }
+  // }
 
   render() {
     return (
@@ -94,21 +94,21 @@ class App extends Component {
 
                 {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
                 <ListItem>
-                  <Link to="/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:0})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
                     <ListItemText primaryText='Home' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:1})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
                     <ListItemText primaryText='Pokédex' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open})}>
+                  <Link to="/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:2})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='flash_on'/>} />
                     <ListItemText primaryText='Moves' />
                   </Link>

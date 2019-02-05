@@ -44,6 +44,8 @@
 @import '@material/react-list/index.scss';
 // Select
 @import '@material/react-select/index.scss';
+// Linear progress
+@import '@material/react-linear-progress/index.scss';
 
 // ------------------------------------------------- //
 
@@ -53,6 +55,11 @@
 
 .app {
 
+}
+
+.my-card-content {
+  /* top | right | bottom | left */
+  padding: 0em 1em 2em 1em;
 }
 
 .list-item-links a {

@@ -16,8 +16,11 @@ import { Headline3 } from '@material/react-typography';
 import PokemonCard from './PokemonCard';
 import Search from './../Search';
 import Dropdown from './../Dropdown';
+import Loading from './../Loading';
 
 // ------------------------------------------------- //
+
+let number_of_pokemon;
 
 class PokemonList extends Component {
   constructor(props) {
@@ -26,7 +29,8 @@ class PokemonList extends Component {
       pokemon: [],
       types: [],
       searchText: '',
-      selectedType: ''
+      selectedType: '',
+      loading: true
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -48,7 +52,7 @@ class PokemonList extends Component {
   componentDidMount() {
     axios.get('https://pokeapi.co/api/v2/pokedex/2/')
     .then(response => {
-
+      number_of_pokemon = response.data.pokemon_entries.length;
       // Loop through each entry and request each pokemon by entry
       response.data.pokemon_entries.forEach(pokedex => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokedex.entry_number}/`)
@@ -77,6 +81,14 @@ class PokemonList extends Component {
 
     })
     .catch(error => console.log(error));
+  }
+
+  componentDidUpdate() {
+    if (this.state.loading && this.state.pokemon.length >= number_of_pokemon) {
+      this.setState({
+        loading: false
+      });
+    }
   }
 
   handleChange = (event) => {
@@ -142,7 +154,9 @@ class PokemonList extends Component {
               </Cell>
             </Row>
             <br/>
-            <Row>{pokemon}</Row>
+            <Row>
+              <Loading loading={this.state.loading} bar={true} component={pokemon}/>
+            </Row>
           </Cell>
           <Cell columns={1}/>
         </Row>
