@@ -79,7 +79,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <main className='drawer-container'>
+        <main className='drawer-container drawer-alternate'>
           <Drawer
             modal
             open={this.state.open}
@@ -90,7 +90,7 @@ class App extends Component {
             </DrawerHeader>
 
             <DrawerContent>
-              <List className='list-item-links' singleSelection selectedIndex={this.state.selectedIndex}>
+              <List className='list-alternate' singleSelection selectedIndex={this.state.selectedIndex}>
 
                 {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
                 <ListItem>

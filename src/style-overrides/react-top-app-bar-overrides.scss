@@ -3,6 +3,6 @@
 
 .top-app-bar-alternate {
   @include mdc-top-app-bar-fill-color($transparent);
-  @include mdc-top-app-bar-ink-color($blue);
-  @include mdc-top-app-bar-icon-ink-color($blue);
+  @include mdc-top-app-bar-ink-color($purple);
+  @include mdc-top-app-bar-icon-ink-color($purple);
 }
