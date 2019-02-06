@@ -1,6 +1,6 @@
 # Pokédex
 
-Year 4 Advanced JavaScript Module Assignment w/ React + Material
+Year 4 Advanced JavaScript Module Assignment w/ [React](https://reactjs.org/) + [Material](https://material.io/)
 
 Assessment: _Using an API and front-end framework, develop a web application with React.js_
 
