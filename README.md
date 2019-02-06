@@ -10,7 +10,7 @@ Site hosted with [gh-pages](https://www.npmjs.com/package/gh-pages) @ [larryzodi
 
 # Local Setup
 
-This React application uses [MDC React](https://github.com/material-components/material-components-web-react/blob/master/README.md) and requires a bit of extra setup to get started. To be able to run this locally you will need to [install Sass](https://sass-lang.com/install) using `npm install -g sass`.
+This React application uses [MDC React](https://github.com/material-components/material-components-web-react) and requires a bit of extra setup to get started. To be able to run this locally you will need to [install Sass](https://sass-lang.com/install) using `npm install -g sass`.
 
 Then clone the repository and install the app regularly with `npm install`.
 
