@@ -94,21 +94,21 @@ class App extends Component {
 
                 {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
                 <ListItem>
-                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:0})}>
+                  <Link to="/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:0})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
                     <ListItemText primaryText='Home' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/pokedex/poke/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:1})}>
+                  <Link to="/poke/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:1})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
                     <ListItemText primaryText='Pokédex' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/pokedex/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:2})}>
+                  <Link to="/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:2})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='flash_on'/>} />
                     <ListItemText primaryText='Moves' />
                   </Link>
@@ -127,10 +127,19 @@ class App extends Component {
               />}
             />
 
+            {/*
+              localhost:3000 is / and works fine, but defaults to /poke/ on gh-pages
+              This is because deployed at https://larryzodiac.github.io/pokedex/
+              But https://larryzodiac.github.io/ matches / so we get a blank page
+              Dan Abramov says:
+              Use `process.env.PUBLIC_URL` in your route definitions so that they work both in development and after deployment.
+              https://github.com/facebook/create-react-app/issues/1765
+            */}
+
             <TopAppBarFixedAdjust>
-              <Route exact path='/pokedex/' component={Home}/>
-              <Route path='/pokedex/poke' component={PokemonList}/>
-              <Route path='/pokedex/moves' component={MoveList}/>
+              <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
+              <Route path={process.env.PUBLIC_URL + '/poke'} component={PokemonList}/>
+              <Route path={process.env.PUBLIC_URL + '/moves'} component={MoveList}/>
             </TopAppBarFixedAdjust>
           </DrawerAppContent>
         </main>
