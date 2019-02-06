@@ -94,21 +94,21 @@ class App extends Component {
 
                 {/* React Router <a> doesn't like MDC ul styles -> have to add classNames to <Link/> */}
                 <ListItem>
-                  <Link to="/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:0})}>
+                  <Link to="/pokedex/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:0})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='home'/>} />
                     <ListItemText primaryText='Home' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/poke/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:1})}>
+                  <Link to="/pokedex/poke/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:1})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='public'/>} />
                     <ListItemText primaryText='Pokédex' />
                   </Link>
                 </ListItem>
 
                 <ListItem>
-                  <Link to="/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:2})}>
+                  <Link to="/pokedex/moves/" className='mdc-list-item mdc-list-item--disabled' onClick={() => this.setState({open: !this.state.open, selectedIndex:2})}>
                     <ListItemGraphic graphic={<MaterialIcon icon='flash_on'/>} />
                     <ListItemText primaryText='Moves' />
                   </Link>
@@ -128,9 +128,9 @@ class App extends Component {
             />
 
             <TopAppBarFixedAdjust>
-              <Route exact path='/' component={Home}/>
-              <Route path='/poke' component={PokemonList}/>
-              <Route path='/moves' component={MoveList}/>
+              <Route exact path='/pokedex/' component={Home}/>
+              <Route path='/pokedex/poke' component={PokemonList}/>
+              <Route path='/pokedex/moves' component={MoveList}/>
             </TopAppBarFixedAdjust>
           </DrawerAppContent>
         </main>
