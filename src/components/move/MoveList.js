@@ -80,6 +80,7 @@ class MoveList extends Component {
   }
 
   componentDidUpdate() {
+    // eslint-disable-next-line
     {/*
       selectedMove starts off empty
       after moves request finished set selectedMove to first in array
@@ -87,6 +88,7 @@ class MoveList extends Component {
       If in render, state.moves[0] is undefined, request async -> crashes app
       http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
     */}
+    // eslint-disable-next-line
     {/*
       selectedMove starts off empty
       I want to update the <Move/> component and pass it updated props from the finished request
