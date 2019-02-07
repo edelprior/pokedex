@@ -26,7 +26,7 @@ import List, {
 // ------------------------------------------------- //
 
 // React-Router-Dom
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { HashRouter, Route, Link } from 'react-router-dom';
 
 // ------------------------------------------------- //
 
@@ -78,7 +78,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <main className='drawer-container drawer-alternate'>
           <Drawer
             modal
@@ -137,13 +137,13 @@ class App extends Component {
             */}
 
             <TopAppBarFixedAdjust>
-              <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
-              <Route path={process.env.PUBLIC_URL + '/poke'} component={PokemonList}/>
-              <Route path={process.env.PUBLIC_URL + '/moves'} component={MoveList}/>
+              <Route exact path='/' component={Home}/>
+              <Route path='/poke' component={PokemonList}/>
+              <Route path='/moves' component={MoveList}/>
             </TopAppBarFixedAdjust>
           </DrawerAppContent>
         </main>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
