@@ -216,6 +216,7 @@ componentDidUpdate() {
 - [The Power Of Not Mutating Data](https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data)
 - [React Lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 - [Sass Basics](https://sass-lang.com/guide)
+- [IADT Advanced JavaScript](https://iadt-advancedjs.github.io/)
 - [Gh-pages deployment problems with react-router #1765](https://github.com/facebook/create-react-app/issues/1765#issuecomment-285114194)
 
 # Reflection
