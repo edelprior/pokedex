@@ -54,11 +54,11 @@ The `<Drawer/>` Component :
 
 # Application Description
 
-The React application is composed of an _App.js_, _Index.js_ and _components_ folder.
+The React application is composed of an _App.js_, _Index.js_ and a _components_ folder.
 
 The components folder contains subfolders for each page’s components e.g `<PokemonList/>` and `<MoveList/>` and a collection of input components for universal use e.g `<Search/>` bar and `<Dropdown/>` select components.
 
-App.js is where the page components are compiled for use and rendered based on conditions and using [react-router](https://reacttraining.com/react-router/core/guides/philosophy).
+App.js is where the page components are imported for use and rendered based on conditions and using [react-router](https://reacttraining.com/react-router/core/guides/philosophy).
 
 Index.js imports App.js and appends the full application to the dom.
 
@@ -111,7 +111,7 @@ class App {
 export App;
 ```
 
-### Home.js
+### Home.js + Request Handling for the Application
 
 The `<Home/>` component is rendered based on App's routes and acts as a landing page for the application. The page contains information and a randomly generated short list of Pokémon.
 
@@ -147,11 +147,13 @@ The state array of sprites is then mapped over passing the image data as props t
 
 This is the premise for all requests made in the rest of this application.
 
-### PokémonList.js & MoveList.js
+### PokémonList.js/MoveList.js + Filtering State Data
 
 The request made in the `componentDidMount()` method are the exact same for these components with minor alterations. 
 
-The data such as pokémon _type_ and _category_ are to be placed in dropdown select inputs. These types for example are collected up and duplicates are removed and added to state. This _de-duplicated_ array is passed as props to the input components.
+The data such as pokémon _type_ and _category_ are to be placed in dropdown select inputs. 
+
+These types, for example, are iterated over with a `.map()` and duplicates are removed and added to state. This _de-duplicated_ array is passed as props to the input components.
 
 ```javascript
 const types_deduped = [...new Set(prevState.types.concat(pokemon_types))];
@@ -166,7 +168,52 @@ types_deduped.sort();
 
 We concatenate `''` so to display pokémon with no filter to type i.e all pokémon.
 
-Once the input components are poplated with options and passed an `onChange` handler method, the input is used to filter the state results. The state is mapped over using the `.map()` method and filtered using conditional statements. The results of which are evaluated by braces in the _return_ statement.
+Once the input components are poplated with options and passed an `onChange` handler method, the selected input is used to filter the state results. 
+
+The state data is mapped over using the `.map()` method and filtered using conditional statements based on the selected input state. The results of which are evaluated by braces in the _return_ statement.
+
+### Components
+
+The other components in the application `<Dropdown/>`, `<Search/>` and `<Loading/>` are used in both pages. 
+
+These components use `<React.Fragments/>` to return multiple elements without adding extra nodes to the DOM.
+
+`<Loading/>` is worth mentioning as it utilises the `componentDidUpdate()` life cycle method. 
+
+This is controlled by a _loading_ state proprety.
+
+A variable is used to check the length of the dataset : 
+
+```
+number_of_pokemon = response.data.pokemon_entries.length;
+```
+
+Seeing as though Axios requests are async, the only way to check if the promises are fulfilled is to call another `.then()`.
+
+Whenever I tried to setState here I recieved a memory leak error. I understand what this means, however, I couldn't figure out how to fix it. I used the update as a work around.
+
+```javascript
+componentDidUpdate() {
+ if (this.state.loading && this.state.pokemon.length >= number_of_pokemon) {
+  this.setState({
+   loading: false
+  });
+ }
+}
+```
+
+```
+// Render the loading bar or the component prop
+<Loading loading={this.state.loading} bar={true} component={pokemon}/>
+```
 
 # References 
 
+- [Material Components](https://github.com/material-components/material-components-web-react)
+- [Kent C. Dodds](https://egghead.io/courses/the-beginner-s-guide-to-react)
+- [Avoid setState warnings on unmounted React components](https://www.youtube.com/watch?v=8BNdxFzMeVg&t=676s)
+- [How to deploy React application to GitHub Pages](https://www.youtube.com/watch?v=1Y-PqBH-htk)
+- [The Power Of Not Mutating Data](https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data)
+- [React Lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+- [Sass Basics](https://sass-lang.com/guide)
+- [Gh-pages deployment problems with react-router #1765](https://github.com/facebook/create-react-app/issues/1765#issuecomment-285114194)
