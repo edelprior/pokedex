@@ -217,3 +217,13 @@ componentDidUpdate() {
 - [React Lifecycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 - [Sass Basics](https://sass-lang.com/guide)
 - [Gh-pages deployment problems with react-router #1765](https://github.com/facebook/create-react-app/issues/1765#issuecomment-285114194)
+
+# Reflection
+
+I struggled with how React's lifecycle methods worked and how to manage data stored in state.
+
+I came across no-op memeory leaks and undefined components quite a bit. Most of these problems I managed to fix, however, I'm still not 100% confident with how to code things _reactily_.
+
+I felt as if I was using the lifecycle methods wrong when I used `componentDidUpdate()`.
+
+I had very much enjoyed building the interface and React's way of faking single page applications and how React's rendering works.
