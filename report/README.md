@@ -202,7 +202,7 @@ componentDidUpdate() {
 }
 ```
 
-```
+```javascript
 // Render the loading bar or the component prop
 <Loading loading={this.state.loading} bar={true} component={pokemon}/>
 ```
@@ -222,8 +222,8 @@ componentDidUpdate() {
 
 I struggled with how React's lifecycle methods worked and how to manage data stored in state.
 
-I came across no-op memeory leaks and undefined components quite a bit. Most of these problems I managed to fix, however, I'm still not 100% confident with how to code things _reactily_.
+I came across no-op memeory leaks and undefined components quite a bit. Most of these problems I managed to fix thankfully.
 
-I felt as if I was using the lifecycle methods wrong when I used `componentDidUpdate()`.
+I felt as if I was using the lifecycle methods wrong when I used `componentDidUpdate()`. I'm still not 100% on whether or not I'm coding _reactily_.
 
 I had very much enjoyed building the interface and React's way of faking single page applications and how React's rendering works.
