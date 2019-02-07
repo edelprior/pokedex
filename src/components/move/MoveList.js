@@ -208,7 +208,7 @@ class MoveList extends Component {
 
               {/* Want to add static <Move/> component here*/}
               <Cell columns={5}>
-                <Cell>
+                <Cell columns={10} className='move-card'>
                   <Loading loading={this.state.loading} bar={false} component={
                     <MoveCard
                       name = {this.state.selectedMove.name}
