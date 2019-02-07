@@ -1,33 +1,114 @@
-# Pokédex
 
-Year 4 Advanced JavaScript Module Assignment w/ [React](https://reactjs.org/) + [Material](https://material.io/)
+# Project Report
 
-Assessment: _Using an API and front-end framework, develop a web application with React.js_
+Evan MacHale
 
-API used is the [PokéAPI](https://pokeapi.co/).
+N00150552 ~ Year 4 Creative Computing
 
-Site hosted with [gh-pages](https://www.npmjs.com/package/gh-pages) @ [larryzodiac.github.io/pokedex/](https://larryzodiac.github.io/pokedex/).
+Pokédex Web Application with React.
 
-# Local Setup
+# Introduction
 
-This React application uses [MDC React](https://github.com/material-components/material-components-web-react) and requires a bit of extra setup to get started. To be able to run this locally you will need to [install Sass](https://sass-lang.com/install) using `npm install -g sass`.
+This project is based upon a video game in which players catch and train various species of monsters known as [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon_(video_game_series)). In this game there is a database known as the [Pokédex](https://www.pokemon.com/us/pokedex/) in which players may search and browse Pokémon. This project uses the [PokéAPI](https://pokeapi.co/).
 
-Then clone the repository and install the app regularly with `npm install`.
+# User Stories
 
-To get MDC React Components to work with `create-react-app` you need to set a `SASS_PATH` environment variable that points to your `node_modules` directory. To quickly do this on OS X enter the following in your command line:
+There are only two types of users who play Pokémon and wish to use the Pokédex. The first is a casual player who searches for Pokémon that they enjoy using; The second is a competitive player who searches for Pokémon based on their statistics to be used in tournament play.
 
-```sh
-export SASS_PATH=./node_modules
+Casual player - conditions/satisfactions :
+
+- As a casual player, I want to search for _fire type_ pokémon to use, so that I can use my favourite pokémon type in my team.
+- As a casual player, I want to search for _fire type_ moves, so to figure out the best moves my fire type pokémon may learn.
+
+Competitive player - conditions/satisfactions :
+
+- As a competitive player, I want to search the _pokémon Venusaur_ to check whether it can learn the trick room ability, so to beat a certain tournament team.
+- As a competitive player, I want to search for powerful _grass moves_ that Venusaur may learn, so to compensate for Venusaur’s lack of attack.
+
+Broken down details :
+
+- Provide list components for pokémon, moves and abilities that players may browse.
+- Proved navigation menus to travel between each section.
+- Provide a system of list filtering so that players may sort by data such as type, stats and categories.
+- Provide conditional components that display a selected list items detailed data.
+
+# Wireframe 
+
+Wireframe (pre-development) from stories depicts three pages : 
+
+- Home page
+- Pokémon page
+- Moves page
+
+Each page will be wrapped in a `<LayoutGrid/>`
+
+![Home](https://raw.githubusercontent.com/larryzodiac/pokedex/master/report/images/home.png)
+
+![Pokémon](https://raw.githubusercontent.com/larryzodiac/pokedex/master/report/images/pokemon.png)
+
+![Moves](https://raw.githubusercontent.com/larryzodiac/pokedex/master/report/images/moves.png)
+
+The `<Drawer/>` Component :
+
+![Menu](https://raw.githubusercontent.com/larryzodiac/pokedex/master/report/images/menu.png)
+
+# Application Description
+
+The React application is composed of an _App.js_, _Index.js_ and _components_ folder.
+
+The components folder contains subfolders for each page’s components e.g `<PokemonList/>` and `<MoveList/>` and a collection of input components for universal use e.g `<Search/>` bar and `<Dropdown/>` select components.
+
+App.js is where the page components are compiled for use and rendered based on conditions and using [react-router](https://reacttraining.com/react-router/core/guides/philosophy).
+
+Index.js imports App.js and appends the full application to the dom.
+
+### App.js
+
+Inside this file is utilised [Material Design Components(MDC) React](https://github.com/material-components/material-components-web-react)’s `<Drawer/>` with `<TopAppBar/>` wrapped by react-router `<HashRouter/>`.
+
+`<HashRouter/>` acts as a container for the app, inside which can be found MDC `<Drawer/>` and `<DrawerAppContent/>`. `<Drawer/>` contains a header and content with an MDC `<List/>` with multiple react-router `<Link/>`s.
+
+After is `<DrawerAppContent/>`, where the MDC `<TopAppBar/>` lives with react-router `<Routes/>`, rendering different pages. These pages are `<PokemonList/>`, `<MoveList/>` and `<Home/>`.
+
+App.js has a state of `open` to determine whether or not the `<Drawer/>` modal is open, and `selectedIndex` which keeps track of the selected route.
+
+Pseudo-code:
+ 
+```javascript
+
+class App {
+
+  <HashRouter>
+    <main>
+
+      <Drawer>
+        <DrawerHeader />
+        <DrawerContent>
+          <List >
+            // Links ...
+            <ListItem>
+              </Link>
+            </ListItem>
+            // ...
+          </List>
+        </DrawerContent>
+      </Drawer>
+
+      <DrawerAppContent>
+        <TopAppBar />
+        <TopAppBarFixedAdjust>
+          // Your awesome content here ...
+          <Route component={Home}/>
+          <Route component={PokemonList}/>
+        </TopAppBarFixedAdjust>
+      </DrawerAppContent>
+
+    </main>
+  </HashRouter>
+
+}
+
+export App;
 ```
 
-If you're on Windows use the following:
-
-```bat
-SET SASS_PATH=.\node_modules
-```
-
-If you want to permanently add this to your environment, read this doc about [adding environment variables](https://github.com/material-components/material-components-web-react/blob/master/docs/adding-env-variables.md). 
-
-You should now be ready to go, navigate to the app in your command line and run `npm start`
-
-This readme is based on the MDC React getting started readme. If you have any problems refer to it [here](https://github.com/material-components/material-components-web-react/blob/master/README.md).
+### Home.js
